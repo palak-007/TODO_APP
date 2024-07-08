@@ -1,0 +1,346 @@
+:root {
+    --font: 'Josefin Sans';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: var(--font);
+}
+
+body {
+    --AlltextColor: hsl(220, 98%, 61%);
+    --inputBG: hsl(0, 0%, 98%);
+    --borderColor: hsl(236, 9%, 61%);
+    --taskColor: hsl(235, 19%, 35%);
+    --hoverColor: hsl(235, 19%, 35%);
+    background-color: var(--inputBG);
+}
+
+body.dark {
+    --AlltextColor: hsl(220, 98%, 61%);
+    --inputBG: hsl(235, 24%, 19%);
+    --borderColor: hsl(236, 9%, 61%);
+    --taskColor: hsl(234, 39%, 85%);
+    --hoverColor: white;
+
+    background-color: hsl(235, 21%, 11%);
+}
+
+.top-section {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20rem;
+    background: url(images/bg-desktop-light.jpg) no-repeat;
+    width: 100%;
+    background-size: cover;
+}
+
+.top-section.dark {
+    background: url(images/bg-desktop-dark.jpg) no-repeat;
+    width: 100%;
+    background-size: cover;
+}
+
+.heading {
+    display: flex;
+    width: 45rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.todo-div {
+    font-family: var(--font);
+    font-weight: 700;
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 1rem;
+}
+
+.input-div {
+    margin-bottom: 2rem;
+    display: flex;
+    width: 45rem;
+    padding: 2rem;
+    border-radius: 0.6rem;
+    background-color: var(--inputBG);
+    column-gap: 1rem;
+}
+
+.input-field {
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    width: 100%;
+    color: var(--taskColor);
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.circle-div {
+    height: 28px;
+    width: 28px;
+    border: 1px solid var(--borderColor);
+    border-radius: 50%;
+}
+
+.container {
+    background-color: var(--inputBG);
+    position: relative;
+    top: -40px;
+    margin-inline: auto;
+    width: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.6rem;
+}
+
+.content-section {
+    width: 100%;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    color: var(--borderColor);
+}
+
+.footer-section div:not(:first-child) {
+    cursor: pointer;
+}
+
+.states-div {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.new-div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--borderColor);
+    padding: 1rem 1rem;
+    align-items: center;
+}
+
+.task-div {
+    font-size: 28px;
+    color: var(--taskColor);
+    padding: 1rem 1.2rem;
+    width: 100%;
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.check-icon-div {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.footer-section {
+    font-size: 24px;
+    margin-top: 2rem;
+}
+
+.all {
+    color: var(--AlltextColor);
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.all:hover,
+.active:hover,
+.seeCompleted:hover,
+.clear-div:hover {
+    color: var(--hoverColor);
+}
+
+.cross-icon {
+    transform: scale(0);
+    cursor: pointer;
+}
+
+/* + next sibling selector */
+/* > direct child selector */
+.new-div:hover>.task-div+.cross-icon-div>.cross-icon {
+    transform: scale(1);
+}
+
+@media(max-width: 769px) {
+    .top-section {
+        padding-top: 3rem;
+        height: 13rem;
+    }
+
+    .heading {
+        width: 20rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .todo-div {
+        font-weight: 700;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .input-div {
+        margin-bottom: 1rem;
+        width: 20rem;
+        padding: 0.8rem;
+        border-radius: 0.4rem;
+        background-color: var(--inputBG);
+        column-gap: 0.9rem;
+    }
+
+    .input-field {
+        font-size: 14px;
+    }
+
+    .circle-div {
+        height: 16px;
+        width: 16px;
+    }
+
+    .container {
+        width: 20rem;
+    }
+
+    .footer-section {
+        padding: 0.3rem;
+    }
+
+    .states-div {
+        column-gap: 0.3rem;
+    }
+
+    .task-div {
+        font-size: 14px;
+    }
+
+    .check-icon-div {
+        height: 16px;
+        width: 16px;
+    }
+
+    .footer-section {
+        font-size: 12px;
+        margin-top: 1.3rem;
+    }
+
+    .new-div {
+        padding: 0.3rem 0.4rem;
+    }
+}
+
+@media(max-width: 426px){
+    .footer-section{
+        position: relative;
+    }
+    .states-div {
+        column-gap: 0.7rem;
+        position: absolute;
+        top: 3.5rem;
+        left: 0.1rem;
+        background-color: var(--inputBG);
+        width: 20rem;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 0.6rem;
+    }
+}
+
+@media(max-width: 321px) {
+    .top-section {
+        padding-top: 3rem;
+        height: 13rem;
+    }
+
+    .heading {
+        width: 16rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .todo-div {
+        font-weight: 700;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .input-div {
+        margin-bottom: 0.6rem;
+        width: 17rem;
+        padding: 0.8rem 0.6rem;
+        border-radius: 0.4rem;
+        background-color: var(--inputBG);
+        column-gap: 0.9rem;
+    }
+
+    .input-field {
+        font-size: 12px;
+    }
+
+    .circle-div {
+        height: 12px;
+        width: 12px;
+    }
+
+    .container {
+        width: 17rem;
+        margin-inline: auto;
+    }
+
+    .footer-section {
+        padding: 0.2rem 0.5rem;
+        position: relative;
+    }
+
+    .states-div {
+        column-gap: 0.7rem;
+        position: absolute;
+        top: 3rem;
+        left: 0.1rem;
+        background-color: var(--inputBG);
+        width: 17rem;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .task-div {
+        font-size: 14px;
+    }
+
+    .check-icon-div {
+        height: 16px;
+        width: 16px;
+    }
+
+    .footer-section {
+        font-size: 12px;
+        margin-top: 1.3rem;
+    }
+
+    .new-div {
+        padding: 0.3rem 0.4rem;
+    }
+}
